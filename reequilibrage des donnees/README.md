@@ -2,13 +2,17 @@
 
 This project presents a comprehensive study on data rebalancing and binary classification applied to a medical dataset (`Medical cost.csv`). The main objective is to predict whether an individual is a smoker (`smoker`) based on their characteristics, while addressing class imbalance issues.
 
-## 📓 Notebook: [main.ipynb](main.ipynb)
+## 📓 Notebooks
 
-The notebook provides a structured workflow, from data preparation to advanced model evaluation, including the analysis of problematic folds.
+The workflow is now split into three main notebooks:
+
+- **Preprocessing.ipynb**: Covers all preprocessing steps and outputs the cleaned dataset (`Clean_Medical_cost.csv`).
+- **Oversampling.ipynb**: Focuses on over-sampling techniques and their impact.
+- **Undersampling.ipynb**: Focuses on under-sampling techniques and their impact.
 
 ---
 
-## 1. **Data Preprocessing**
+## 1. **Data Preprocessing** (`Preprocessing.ipynb`)
 
 - **Loading & Exploration**: Import data, check for duplicates, inspect column types, handle missing values, and generate descriptive statistics.
 - **Handling Missing Values**:
@@ -17,10 +21,11 @@ The notebook provides a structured workflow, from data preparation to advanced m
   - Use the IQR method to identify outliers in numerical columns.
   - Correct extreme outliers for `bmi` and `charges`.
 - **Visualizations**: Variable distributions, boxplots, and correlation heatmaps.
+- **Output**: Cleaned dataset saved as `Clean_Medical_cost.csv`.
 
 ---
 
-## 2. **Encoding & ML Preparation**
+## 2. **Encoding & ML Preparation** (in `Preprocessing.ipynb`)
 
 - **Categorical Variable Encoding**:
   - `sex` and `smoker`: binary encoding.
@@ -31,7 +36,7 @@ The notebook provides a structured workflow, from data preparation to advanced m
 
 ---
 
-## 3. **Modeling & Training Functions**
+## 3. **Modeling & Training Functions** (in all notebooks)
 
 - **Random Forest**: Training function with metrics display, confusion matrix, and ROC curve.
 - **Naive Bayes**: Same approach, tailored for binary classification.
@@ -41,12 +46,12 @@ The notebook provides a structured workflow, from data preparation to advanced m
 
 ## 4. **Data Rebalancing**
 
-### **Over-sampling**
+### **Over-sampling** (`Oversampling.ipynb`)
 - Methods tested: `RandomOverSampler`, `SMOTE`, `ADASYN`, `BorderlineSMOTE`, `SVMSMOTE`.
 - Comparative visualization before/after (distribution, PCA).
 - Evaluation of the impact on model performance.
 
-### **Under-sampling**
+### **Under-sampling** (`Undersampling.ipynb`)
 - Methods tested: `RandomUnderSampler`, `CondensedNearestNeighbour`, `TomekLinks`.
 - Visualization and evaluation as above.
 
@@ -81,14 +86,16 @@ For each rebalancing method:
 
 ![alt text](<Capture d’écran du 2025-05-18 10-44-16.png>)
 
-## 🚀 **How to Use This Notebook**
+## 🚀 **How to Use These Notebooks**
 
-1. Place `Medical cost.csv` in the same folder as [`main.ipynb`](main.ipynb).
-2. Install the required dependencies:
+1. Place `Medical cost.csv` in the same folder as the notebooks.
+2. Run `Preprocessing.ipynb` to generate `Clean_Medical_cost.csv`.
+3. Use `Clean_Medical_cost.csv` as input for `Oversampling.ipynb` and `Undersampling.ipynb`.
+4. Install the required dependencies:
    ```bash
    pip install pandas numpy matplotlib seaborn scikit-learn imbalanced-learn xgboost
    ```
-3. Open and run the notebook in VS Code or Jupyter.
+5. Open and run the notebooks in VS Code or Jupyter.
 
 ---
 
@@ -114,3 +121,4 @@ For each rebalancing method:
 
 **Author**: Nzogni Omong Yann Arthur [yann_thur]  
 **License**: MIT
+
